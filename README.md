@@ -1,4 +1,9 @@
-CSC1034: Pratical 1
+CSC1034: Practical 1
 ===================
 
+Portfolio 1
+===========
 
+This package is built as a part of the CSC1034: Portfolio-1.
+
+Type `python hello_world.py` to see some useful information.
