@@ -1,21 +1,12 @@
-import sys
-import platform
-
 from direct.showbase.ShowBase import ShowBase
 from direct.task import Task
 from direct.actor.Actor import Actor
 from math import pi, sin, cos
 
-print("hello")
 
-print(1, sys.version)
-print(2, platform.python_implementation())
-print(3, sys.executable)
+class WalkingPanda(ShowBase):
 
-
-class MyApp(ShowBase):
-
-    def __init__(self):
+    def __init__(self, no_rotate=False):
         ShowBase.__init__(self)
 
         # Load the environment model.
@@ -36,15 +27,15 @@ class MyApp(ShowBase):
         self.pandaActor.reparentTo(self.render)
         # Loop its animation.
         self.pandaActor.loop("walk")
+        self.no_rotate = no_rotate
 
     # Define a procedure to move the camera.
     def spinCameraTask(self, task):
-        angleDegrees = task.time * 6.0
+        if self.no_rotate:
+            angleDegrees = 0
+        else:
+            angleDegrees = task.time * 6.0
         angleRadians = angleDegrees * (pi / 180.0)
         self.camera.setPos(20 * sin(angleRadians), -20.0 * cos(angleRadians), 3)
         self.camera.setHpr(angleDegrees, 0, 0)
         return Task.cont
-
-
-app = MyApp()
-app.run()
