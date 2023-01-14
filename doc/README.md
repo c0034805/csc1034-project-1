@@ -4,7 +4,7 @@ CSC1034: Practical 1
 Portfolio 1
 ===========
 
-This package is built as a part of the CSC1034: Portfolio-1.
+This package is built as a part of the CSC1034: Portfolio-1 module.
 
 Type 'python walking_panda.py' to see a panda walking with
 rotating camera.
